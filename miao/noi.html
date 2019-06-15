@@ -28,28 +28,28 @@
             b = Number(prompt('b = ')),
             c = Number(prompt('c = '));
 
-        console.log((a + b) / c);
+        console.log(Math.floor((a + b) / c));
     </script>
 
     <script type="xx" id="ch0103/04">
         var a = Number(prompt('a = ')),
             b = Number(prompt('b = '));
 
-        console.log(a % b);
+        console.log(Math.floor(a / b),a % b);
     </script>
 
     <script type="xx" id="ch0103/05">
         var a = Number(prompt('a = ')),
             b = Number(prompt('b = '));
 
-        console.log(a / b);
+        console.log((a / b).toFixed(9));
     </script>
 
     <script type="xx" id="ch0103/06">
         var a = Number(prompt('确诊数 = ')),
             b = Number(prompt('死亡数 = '));
 
-        console.log(b / a * 100 + '%');
+        console.log((b / a * 100).toFixed(3) + '%');
     </script>
 
     <script type="xx" id="ch0103/07">
@@ -60,23 +60,23 @@
             d = Number(prompt('d = ')),
             fx = a * x * x * x + b * x * x + c * x + d;
 
-        console.log(fx);
+        console.log(fx.toFixed(7));
     </script>
 
     <script type="xx" id="ch0103/08">
         var F = Number(prompt('f = ')),
             C = 5 * (F - 32) / 9;
 
-        console.log(C);
+        console.log(C.toFixed(5));
     </script>
 
     <script type="xx" id="ch0103/09">
         var r = Number(prompt('r = ')),
             D = 2 * r,
-            L = 2 * Math.PI * r,
-            S = Math.PI * r * r;
+            L = 2 * 3.14159 * r,
+            S = 3.14159 * r * r;
 
-        console.log(D,L,S)
+        console.log(D.toFixed(4),L.toFixed(4),S.toFixed(4));
     </script>
 
     <script type="xx" id="ch0103/10">
@@ -84,14 +84,14 @@
             r2 = Number(prompt('r2 = ')),
             R = 1 / (1 / r1 + 1 / r2);
 
-        console.log(R);
+        console.log(R.toFixed(2));
     </script>
 
-    <script type="xx" id="ch0103/011">
+    <script type="xx" id="ch0103/11">
         var a = Number(prompt('a = ')),
             b = Number(prompt('b = '));
 
-        console.log(a % b);
+        console.log((a % b).toFixed(4));
     </script>
 
 
@@ -100,7 +100,7 @@
             PI = 3.14,
             V = (4 / 3) * PI * r * r * r;
 
-        console.log(V);
+        console.log(V.toFixed(2));
     </script>
 
 
@@ -114,12 +114,13 @@
     </script>
 
     <script type="xx" id="ch0103/14">
-        var r = Number(prompt('r = ')),
-            h = Number(prompt('h = ')),
+        var h = Number(prompt('r = ')),
+            r = Number(prompt('h = ')),
             Pi = 3.14159,
-            n = 20 / (Pi * r * r * h / 1000);
+            L = Pi * r * r * h ,
+            n = 20 * 1000 / L;
 
-        console.log(n);
+        console.log(Math.ceil(n));
     </script>
 
     <script type="xx" id="ch0103/15">
@@ -139,7 +140,7 @@
             Yb = Number(prompt('Yb = ')),
             L = Math.sqrt((Xb - Xa) * (Xb - Xa) + (Yb - Ya) * (Yb - Ya));
 
-        console.log(L);
+        console.log(L.toFixed(3));
     </script>
 
     <script type="xx" id="ch0103/17">
@@ -473,6 +474,7 @@
             x1,
             x2;
 
+
         if (b * b === 4 * a * c){
             x2 = (-b / (2 * a)).toFixed(5);
             x1 = x2;
@@ -488,11 +490,20 @@
 
             x2 = (- b / 2 * a).toFixed(5) + '-' + Math.sqrt(-(b * b - 4 * a * c)).toFixed(5) / 2 * a + 'i';
 
-            console.log(x1,x2);
+            console.log(x1 + ";" + x2);
         }
 
     </script>
 
+    <script type="xx" id="ch0104/21">
+        var n = Number(prompt('n = ')),
+            x = Number(prompt('x = ')),
+            y = Number(prompt('y = '));
+
+        if(y <= n * x){
+            console.log(Math.floor(n - y / x));
+        }
+    </script>
 
 </body>
 </html>
