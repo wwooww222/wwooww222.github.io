@@ -467,7 +467,7 @@
         }
     </script>
 
-    <script type="xx" id="ch0104/20">
+    <script type="" id="ch0104/20">
         var a = Number(prompt('a = ')),
             b = Number(prompt('b = ')),
             c = Number(prompt('c = ')),
@@ -486,11 +486,11 @@
 
             console.log(x1.toFixed(5),x2.toFixed(5));
         } else if (b * b < 4 * a * c){
-            x1 = (- b / 2 * a).toFixed(5) + '+' + Math.sqrt(-(b * b - 4 * a * c)).toFixed(5) / 2 * a + 'i';
+            x1 = '-' + ( b / 2 * a).toFixed(5) + '+' + Math.sqrt(-(b * b - 4 * a * c)).toFixed(5) / 2 * a + 'i';
 
-            x2 = (- b / 2 * a).toFixed(5) + '-' + Math.sqrt(-(b * b - 4 * a * c)).toFixed(5) / 2 * a + 'i';
+            x2 = '-' + ( b / 2 * a).toFixed(5) + '-' + Math.sqrt(-(b * b - 4 * a * c)).toFixed(5) / 2 * a + 'i';
 
-            console.log(x1 + ";" + x2);
+            console.log(x1,x2);
         }
 
     </script>
