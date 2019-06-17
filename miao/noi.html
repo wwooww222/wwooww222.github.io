@@ -467,7 +467,7 @@
         }
     </script>
 
-    <script type="" id="ch0104/20">
+    <script type="xx" id="ch0104/20">
         var a = Number(prompt('a = ')),
             b = Number(prompt('b = ')),
             c = Number(prompt('c = ')),
@@ -505,5 +505,386 @@
         }
     </script>
 
+
+    <script type="xx" id="ch0105/01">
+        var n = Number(prompt('n = ')),
+            age,
+            sum = 0;
+        
+        if (n >= 1 && n <= 100){
+            for (var i = 1; i <= n; i++){
+                age = Number(prompt('请输入第n名学生年龄'));
+                if (age > 15 && age < 25){
+                    sum = sum + age;
+                }
+            }
+            console.log((sum / n).toFixed(2));
+        }
+    </script>
+
+    <script type="xx" id="ch0105/02">
+        var sum = 0,
+            count;
+        for (var i = 0; i < 12; i++){
+            count = Number(prompt('第' + (i + 1) + '个月的结余 = '));
+            sum += count;
+        }
+
+        console.log('$' + (sum / 12).toFixed(2));
+    </script>
+
+    <script type="xx" id="ch0105/03">
+        var n = Number(prompt('请输入一个正整数 n = ')),
+            m,
+            sum = 0;
+
+        if (n < 100){
+            for (var i = 0; i < n; i++){
+
+                m = Number(prompt('第' + (i + 1) + '个浮点数'));
+
+                if (m <= 0 && m > -1000){
+                    sum += (-m);
+                } else if (m > 0 && m < 1000){
+                    sum += m;
+                }
+
+            }
+        }
+        
+        console.log((sum / n).toFixed(4));
+    </script>
+
+    <script type="xx" id="ch0105/04">
+        var n = Number(prompt('请输入一个正整数 n = ')),
+            m,
+            sum = 0;
+
+        if (n <= 10000 && n >= 1){
+            for (var i = 0; i < n; i++){
+
+                m = Number(prompt('第' + (i + 1) + '个整数'));
+
+                if (m <= 0 && m > -10000){
+                    sum += (-m);
+                } else if (m > 0 && m < 10000){
+                    sum += m;
+                }
+
+            }
+
+            console.log(sum, (sum / n).toFixed(5))
+        }
+    </script>
+
+    <script type="xx" id="ch0105/05">
+        var n = Number(prompt('整数 n = ')),
+            score,
+            max = 0;
+
+        if (n >= 1 && n < 100){
+            for (var i = 0; i < n; i++){
+                score = Number(prompt('第' + (i + 1) + '个学生成绩'));
+                if (max < score){
+                    max = score;
+                }
+            }
+            console.log(max);
+        }
+
+    </script>
+
+    <script type="xx" id="ch0105/06">
+        var n = Number(prompt('整数 n = ')),
+            m,
+            min = 0,
+            max = 0,
+            s;
+
+        if (n >= 1 && n < 1000){
+            for (var i = 0; i < n; i++){
+                    m= Number(prompt('第' + (i + 1) + '个序列'));
+                if (m >= 0 && m <= 1000){
+                    if (max < m){
+                        max = m;
+                    }
+                    if (min >= m){
+                        min = m;
+                    }
+                }
+
+            }
+
+
+            console.log(max - min);
+        }
+    </script>
+
+    <script type="xx" id="ch0105/07">
+        var n = Number(prompt('天数n = ')),
+            g,
+            s,
+            t,
+            Sumg = 0,
+            Sums = 0,
+            Sumt = 0;
+        
+        if (n >= 1 && n <= 17){
+            for (var i = 0; i < n; i++){
+                g = Number(prompt('第'+ (i + 1) + '天金牌'));
+                s = Number(prompt('第'+ (i + 1) + '天银牌'));
+                t = Number(prompt('第'+ (i + 1) + '天铜牌'));
+
+                Sumg += g;
+                Sums += s;
+                Sumt += t;
+
+            }
+
+            console.log(Sumg,Sums,Sumt,Sumg + Sums + Sumt);
+        }
+    </script>
+
+    <script type="xx" id="ch0105/08">
+        var n = Number(prompt('整数n = ')),
+            sum1 = 0,
+            sum = (n - 2) * 180;
+
+        for (var i = 0; i < n - 1; i++){
+            sum1 += Number(prompt('第' + (i + 1) + '个内角'));
+
+        }
+
+        console.log(sum - sum1);
+    </script>
+
+    <script type="xx" id="ch0105/09">
+        var sum = 0,
+            m = Number(prompt('m = ')),
+            n = Number(prompt('n = '));
+
+        for (; m <= n;m++){
+            if (m % 2 !== 0){
+                sum += m;
+            }
+        }
+
+        console.log(sum);
+    </script>
+
+    <script type="xx" id="ch0105/10">
+        var sum = 0,
+            m = Number(prompt('m = ')),
+            n = Number(prompt('n = '));
+
+        for (; m <= n;m++){
+            if (m % 17 === 0){
+                sum += m;
+            }
+        }
+
+        console.log(sum);
+    </script>
+
+    <script type="xx" id="ch0105/11">
+        var k = Number(prompt('k = ?')),
+            m,
+            m1 = 0,
+            m5 = 0,
+            m10 = 0;
+
+        for (var i = 0; i < k; i++){
+            m = Number(prompt('第' + (i + 1) + '个正整数'));
+            if (m === 1){
+                m1++;
+            } else if (m === 5){
+                m5++;
+            } else if (m === 10){
+                m10++;
+            }
+        }
+
+        console.log(m1,m5,m10);
+    </script>
+
+    <script type="xx" id="ch0105/12">
+        var N = Number(prompt('整数序列长度 N = ')),
+            m = Number(prompt('指定数字 m = ')),
+            k,
+            sum = 0;
+
+        for (var i = 0; i < N; i++){
+            k = Number(prompt('第' + (i + 1) + '个整数'));
+                if (k % m === 0){
+                   sum++;
+                }
+
+        }
+
+        console.log(sum);
+    </script>
+
+    <script type="xx" id="ch0105/13">
+        var a = Number(prompt('a = ')),
+            n = Number(prompt('n = ')),
+            sum = 1;
+
+        if ((a >= -1000000 && a <= 1000000) && (n >= 1 && n <= 1000)){
+            for (var i = 1; i <= n; i++){
+               sum *= a
+            }
+
+            console.log(sum);
+        }
+
+    </script>
+
+    <script type="xx" id="ch0105/14">
+        var x = Number(prompt('x = ')),
+            n = Number(prompt('n = '));
+
+        for (var i = 0; i < n; i++){
+            x = x * 1.001;
+        }
+
+        console.log(x.toFixed(4));
+    </script>
+
+    <script type="xx" id="ch0105/15">
+        var R = Number(prompt('年化R = ')),
+            M = Number(prompt('价值 M = ')),
+            Y = Number(prompt('存多少年 Y = '));
+
+        if (R > 0 && R < 20) {
+            if (M > 100 && M < 1000000){
+                if (Y >= 0 && Y <= 1000){
+                    for (var i = 0; i < Y; i++){
+                        M *= R * 0.01 + 1;
+                    }
+                }
+            } 
+        }
+
+
+        console.log(Math.floor(M));
+    </script>
+
+    <script type="xx" id="ch0105/16">
+        var N = Number(prompt('年薪 N =')),
+            K = Number(prompt('房价增长率 K = ')),
+            M,
+            P = 200,
+            S = 0;
+
+        for (var i = 1; i <= 20; i++){
+            P = P * (1 + 0.01 * K);
+            S += N;
+            
+            if (S >= P){
+                M = i;
+                console.log(M);
+            }
+            if (i === 20 && S < P){
+                console.log('impossible');
+            }
+        } 
+        
+    </script>
+
+    <script type="xx" id="ch0105/17">
+        var k = Number(prompt('k = ')),
+            n1 = 1,
+            n2 = 1,
+            n3;
+
+        if (k >= 1 && k <= 46){
+            if (k <= 2){
+                console.log(1);
+            } else if (k >= 3){
+                for (var i = 1; i < k - 1; i++){
+                    n3 = n1 + n2;
+                    n1 = n2;
+                    n2 = n3;
+                }
+                console.log(n3);
+            }
+        }
+    </script>
+
+    <script type="xx" id="ch0105/18">
+        var n = Number(prompt('n = ')),
+            sum,
+            good,
+            x,
+            y;
+
+        for (var i = 0; i < n; i++){
+            sum = Number(prompt('第' + (i + 1) + '组总病例数'));
+            good = Number(prompt('第' + (i + 1) + '有效病例数'));
+
+            if (i === 0){
+                x = good / sum;
+            }
+
+            if (i !== 0){
+                y = good / sum;
+
+                if (y - x > 5 * 0.01){
+                    console.log('better');
+                } else if (x - y > 5 * 0.01){
+                    console.log('worse');
+                } else {
+                    console.log('same');
+                }
+            }
+        }
+
+    </script>
+
+    <script type="xx" id="ch0105/19">
+        var n = Number(prompt('屋顶数 n = ')),
+            s1,
+            s2,
+            s3,
+            t1 = 0,
+            t2 = 0,
+            t3 = 0,
+            x,
+            y,
+            z;
+
+        for (var i = 0; i < n; i++){
+            x = Number(prompt('请输入第' + (i + 1) + '个横坐标') );
+            y = Number(prompt('请输入第' + (i + 1) + '个纵坐标') );
+            z = Number(prompt('第' + (i + 1) + '个坐标人数'));
+            t1 += 2 * Math.sqrt(x * x + y * y) / 50;
+            t2 += z * 0.5;
+            t3 += z * 1;
+        }
+
+        console.log(Math.ceil(t1 + t2 + t3));
+    </script>
+
+    <script type="xx" id="ch0105/20">
+        var h = Number(prompt('高度 h= ')),
+            s = 0;
+
+        for (var i = 0; i < 10; i++){
+            s += h + 0.5 * h;
+            h *= 0.5
+        }
+
+        console.log(s.toFixed(4),h.toFixed(7));
+    </script>
+
+    <script type="xx" id="ch0105/21">
+
+    </script>
+
+
+
+    <script type="xx" id="ch0105/01">
+
+    </script>
 </body>
 </html>
