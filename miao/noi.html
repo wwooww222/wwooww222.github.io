@@ -597,8 +597,8 @@
     <script type="xx" id="ch0105/06">
         var n = Number(prompt('整数 n = ')),
             m,
-            min = 0,
-            max = 0,
+            min = 0,//
+            max = 0,//
             s;
 
         if (n >= 1 && n < 1000){
@@ -774,7 +774,7 @@
             K = Number(prompt('房价增长率 K = ')),
             M,
             P = 200,
-            S = 0;
+            S = 0;//50
 
         for (var i = 1; i <= 20; i++){
             P = P * (1 + 0.01 * K);
@@ -877,7 +877,554 @@
         console.log(s.toFixed(4),h.toFixed(7));
     </script>
 
-    <script type="xx" id="ch0105/21">
+    <script type="XX" id="ch0105/21">
+        var N = Number(prompt('请输入 N = ')),
+            i = 1;
+
+        while (i){
+            if (N % 2 !== 0){
+                N = N * 3 + 1;
+                console.log((N - 1) / 3 + '*3+1=' + N);
+            } else {
+                N = N / 2;
+                console.log(N * 2 + '/2=' + N);
+                if (N === 1){
+                    console.log('End');
+                    i = '';
+                }
+            }
+        }
+    </script>
+
+    <script type="xx" id="ch0105/22">
+        var m,
+            l,
+            s = 0,
+            y = 0,
+            S = 0;
+        
+        for (var i = 0; i < 12; i++){
+            m = Number(prompt('请输入第' + (i + 1) + '个月预花销'));
+            l = 300 + y - m;
+            s = l >= 100 ? Math.floor(l / 100) * 100
+                         : 0;
+            S = S + s ;
+            y = l - s;
+
+            if (l < 0){
+                console.log('-' + (i + 1));
+            }
+
+            if (i === 11){
+                console.log(1.2 * S + y);
+            }
+        }
+    </script>
+
+    <script type="xx" id="ch0105/23">
+        var m = Number(prompt('药品总数 m = ')),
+            n = Number(prompt('取药人数 n =')),
+            x,
+            count = 0;
+
+        for(var i = 0; i < n; i++){
+            x = Number(prompt('想要取走的药品数量 x =' ));
+
+            if (x <= m){
+                m = m - x;
+            } else {
+                count++;
+            }
+
+        }
+        console.log(count);
+    </script>
+
+    <script type="xx" id="ch0105/24">
+        var n = Number(prompt('测量数 n =')),
+            s,
+            z,
+            h = 0,
+            max = 0;
+
+        for (var i = 0; i < n; i++){
+            s = Number(prompt('收缩压 s = '));
+            z = Number(prompt('舒张压 z = '));
+            
+            if ((s > 90 && s <= 140) && (z >= 60 && z <= 90)){
+                h++;
+                if (h > max){
+                    max = h;
+                }
+            } else {
+                h = 0;
+            }
+        }
+
+        console.log(max);
+    </script>
+
+    <script type="xx" id="ch0105/25">
+        var x,
+            y,
+            z
+            ;
+
+        for (var i = 0; i < 7; i++){
+            x = i;
+            for (var j = 0; j < 7; j++){
+                y = j;
+                for (var k = 0; k < 7; k++){
+                    z = k;
+                    if (x * 7 * 7 + y * 7 + z ===
+                        z * 9 * 9 + y * 9 + x) {
+                        console.log(x * 7 * 7 + y * 7 + z )
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script type="xx" id="ch0105/26">
+        var n = Number(prompt('多少个四位数 n = ')),
+            k,
+            q,
+            b,
+            s,
+            g,
+            count = 0;
+
+        for (var i = 0; i < n; i++){
+            k = Number(prompt('第' + (i + 1) + '个四位数'));
+            q = Math.floor(k / 1000);
+            b = Math.floor(k % 1000 / 100);
+            s = Math.floor(k % 1000 % 100 / 10);
+            g = Math.floor(k % 1000 % 100 % 10);
+            
+            if (g - q - b - s > 0){
+                count++;
+                console.log(count);
+            }
+        }
+
+    </script>
+
+    <script type="xx" id="ch0105/27">
+        var k = Number(prompt('整数 k = ')),
+            Sn = 0,
+            i = 1,
+            n = 0;
+
+        while(i){
+
+            Sn = Sn +  1 / (n + 1);
+            n++;
+
+
+            if (Sn > k){
+                console.log(n);
+                i = 0;
+            }
+        }
+
+    </script>
+
+    <script type="xx" id="ch0105/28">
+        var n = Number(prompt('请输入一个整数 n = '));
+
+        if (n > 1 && n < 100000000){
+            if (n < 10){
+                console.log(n);
+            } else if (n > 10 && n < 100){
+                console.log(n % 10,Math.floor(n / 10));
+            } else if (n > 100 && n < 1000){
+                console.log(n % 100 % 10,Math.floor(n % 100 / 10),Math.floor(n / 100));
+            } else if (n > 1000 && n < 10000){
+                console.log(n % 1000 % 100 % 10,Math.floor(n % 1000 % 100 / 10),Math.floor(n % 1000 / 100),Math.floor(n / 1000));
+            } else if (n > 10000 && n < 100000){
+                console.log(n % 10000 % 1000 % 100 % 10,Math.floor(n % 10000 % 1000 % 100 / 10),Math.floor(n % 10000 % 1000 / 100),Math.floor(n % 10000 / 1000),Math.floor(n / 10000))
+            } else if (n > 100000 && n < 1000000){
+                console.log(Math.floor(n % 100000 % 10000 % 1000 % 100 % 10),Math.floor(n % 100000 % 10000 % 1000 % 100 / 10),Math.floor(n % 100000 % 10000 % 1000 / 100),Math.floor(n % 100000 % 10000 / 1000),Math.floor(n % 100000 / 10000),Math.floor(n / 100000))
+            } else if (n > 1000000 && n < 10000000){
+                console.log(Math.floor(n % 1000000 % 100000 % 10000 % 1000 % 100 % 10),Math.floor(n % 1000000 % 100000 % 10000 % 1000 % 100 / 10),Math.floor(n % 1000000 % 100000 % 10000 % 1000 / 100),Math.floor(n % 1000000 % 100000 % 10000 / 1000),Math.floor(n % 1000000 % 100000 / 10000),Math.floor(n % 1000000 / 100000),Math.floor(n / 1000000))
+            } else if (n > 10000000 && n < 100000000){
+                console.log(Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 % 100 % 10),Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 % 100 / 10),Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 / 100),Math.floor(n % 10000000 % 1000000 % 100000 % 10000 / 1000),Math.floor(n % 10000000 % 1000000 % 100000 / 10000),Math.floor(n % 10000000 % 1000000 / 100000),Math.floor(n % 10000000 / 1000000),Math.floor(n / 10000000))
+            }
+        }
+    </script>
+
+    <script type="xx" id="ch0105/29">
+        var n = Number(prompt('请输入一个整数 n = '));
+
+        if (n > 0 && n < 100000000){
+            if (n < 10){
+                console.log(n);
+            } else if (n > 10 && n < 100){
+                console.log('' + n % 10 + Math.floor(n / 10));
+            } else if (n > 100 && n < 1000){
+                console.log('' + n % 100 % 10 + Math.floor(n % 100 / 10) + Math.floor(n / 100));
+            } else if (n > 1000 && n < 10000){
+                console.log('' + n % 1000 % 100 % 10 + Math.floor(n % 1000 % 100 / 10) + Math.floor(n % 1000 / 100) + Math.floor(n / 1000));
+            } else if (n > 10000 && n < 100000){
+                console.log('' + n % 10000 % 1000 % 100 % 10 + Math.floor(n % 10000 % 1000 % 100 / 10) + Math.floor(n % 10000 % 1000 / 100) + Math.floor(n % 10000 / 1000) + Math.floor(n / 10000))
+            } else if (n > 100000 && n < 1000000){
+                console.log('' + Math.floor(n % 100000 % 10000 % 1000 % 100 % 10) + Math.floor(n % 100000 % 10000 % 1000 % 100 / 10) + Math.floor(n % 100000 % 10000 % 1000 / 100) + Math.floor(n % 100000 % 10000 / 1000) + Math.floor(n % 100000 / 10000) + Math.floor(n / 100000))
+            } else if (n > 1000000 && n < 10000000){
+                console.log('' + Math.floor(n % 1000000 % 100000 % 10000 % 1000 % 100 % 10) + Math.floor(n % 1000000 % 100000 % 10000 % 1000 % 100 / 10) + Math.floor(n % 1000000 % 100000 % 10000 % 1000 / 100) + Math.floor(n % 1000000 % 100000 % 10000 / 1000) + Math.floor(n % 1000000 % 100000 / 10000) + Math.floor(n % 1000000 / 100000) + Math.floor(n / 1000000))
+            } else if (n > 10000000 && n < 100000000){
+                console.log('' + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 % 100 % 10) + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 % 100 / 10) + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 / 100) + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 / 1000) + Math.floor(n % 10000000 % 1000000 % 100000 / 10000) + Math.floor(n % 10000000 % 1000000 / 100000) + Math.floor(n % 10000000 / 1000000) + Math.floor(n / 10000000))
+            }
+        } else if (n > -100000000 && n < 0){
+            n = -n;
+
+            if (n < 10){
+                console.log(-n);
+            } else if (n > 10 && n < 100){
+                if(n % 10 === 0){
+                    console.log('-' + Math.floor(n / 10));
+                }else{
+                    console.log('-' + n % 10 + Math.floor(n / 10));
+                }
+
+            } else if (n > 100 && n < 1000){
+                if(n % 100 % 10 === 0){
+                    console.log('-' + Math.floor(n % 100 / 10) + Math.floor(n / 100));
+                }else{
+                    console.log('-' + n % 100 % 10 + Math.floor(n % 100 / 10) + Math.floor(n / 100));
+                }
+
+
+            } else if (n > 1000 && n < 10000){
+                if(n % 1000 % 100 % 10 === 0){
+
+                }else{
+                    console.log('-' + n % 1000 % 100 % 10 + Math.floor(n % 1000 % 100 / 10) + Math.floor(n % 1000 / 100) + Math.floor(n / 1000));
+                }
+
+            } else if (n > 10000 && n < 100000){
+                if(n % 10000 % 1000 % 100 % 10 === 0){
+                    console.log('-' + Math.floor(n % 10000 % 1000 % 100 / 10) + Math.floor(n % 10000 % 1000 / 100) + Math.floor(n % 10000 / 1000) + Math.floor(n / 10000))
+                }else{
+                    console.log('-' + n % 10000 % 1000 % 100 % 10 + Math.floor(n % 10000 % 1000 % 100 / 10) + Math.floor(n % 10000 % 1000 / 100) + Math.floor(n % 10000 / 1000) + Math.floor(n / 10000))
+                }
+
+
+            } else if (n > 100000 && n < 1000000){
+                if(n % 100000 % 10000 % 1000 % 100 % 10 === 0){
+                    console.log('-' + Math.floor(n % 100000 % 10000 % 1000 % 100 / 10) + Math.floor(n % 100000 % 10000 % 1000 / 100) + Math.floor(n % 100000 % 10000 / 1000) + Math.floor(n % 100000 / 10000) + Math.floor(n / 100000))
+                }else{
+                    console.log('-' + n % 100000 % 10000 % 1000 % 100 % 10 + Math.floor(n % 100000 % 10000 % 1000 % 100 / 10) + Math.floor(n % 100000 % 10000 % 1000 / 100) + Math.floor(n % 100000 % 10000 / 1000) + Math.floor(n % 100000 / 10000) + Math.floor(n / 100000))
+                }
+
+
+            } else if (n > 1000000 && n < 10000000){
+                if(n % 1000000 % 100000 % 10000 % 1000 % 100 % 10 === 0){
+                    console.log('' + Math.floor(n % 1000000 % 100000 % 10000 % 1000 % 100 / 10) + Math.floor(n % 1000000 % 100000 % 10000 % 1000 / 100) + Math.floor(n % 1000000 % 100000 % 10000 / 1000) + Math.floor(n % 1000000 % 100000 / 10000) + Math.floor(n % 1000000 / 100000) + Math.floor(n / 1000000))
+                }else{
+                    console.log('' + n % 1000000 % 100000 % 10000 % 1000 % 100 % 10 + Math.floor(n % 1000000 % 100000 % 10000 % 1000 % 100 / 10) + Math.floor(n % 1000000 % 100000 % 10000 % 1000 / 100) + Math.floor(n % 1000000 % 100000 % 10000 / 1000) + Math.floor(n % 1000000 % 100000 / 10000) + Math.floor(n % 1000000 / 100000) + Math.floor(n / 1000000))
+                }
+
+            } else if (n > 10000000 && n < 100000000){
+                if(n % 10000000 % 1000000 % 100000 % 10000 % 1000 % 100 % 10 === 0){
+                    console.log('' + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 % 100 / 10) + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 / 100) + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 / 1000) + Math.floor(n % 10000000 % 1000000 % 100000 / 10000) + Math.floor(n % 10000000 % 1000000 / 100000) + Math.floor(n % 10000000 / 1000000) + Math.floor(n / 10000000))
+                }else{
+                    console.log('' + n % 10000000 % 1000000 % 100000 % 10000 % 1000 % 100 % 10 + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 % 100 / 10) + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 % 1000 / 100) + Math.floor(n % 10000000 % 1000000 % 100000 % 10000 / 1000) + Math.floor(n % 10000000 % 1000000 % 100000 / 10000) + Math.floor(n % 10000000 % 1000000 / 100000) + Math.floor(n % 10000000 / 1000000) + Math.floor(n / 10000000))
+                }
+
+            }
+        }
+    </script>
+
+    <script type="xx" id="ch0105/30">
+        var m = Number(prompt('正整数 m = ')),
+            k = Number(prompt('正整数 n = ')),
+            count = 0;
+
+        if (m % 19 === 0){
+
+            if (m < 10){
+                if (m === 3){
+                    count++;
+                }
+            } else if (m > 10 && m < 100){
+                if (m % 10 === 3){
+                    count++;
+                }
+                if (Math.floor(m / 10) === 3) {
+                    count++;
+                }
+            } else if (m > 100 && m < 1000){
+                if (m % 100 % 10 === 3){
+                    count++;
+                }
+                if (Math.floor(m % 100 / 10) === 3){
+                    count++;
+                }
+                if (Math.floor(m / 100) === 3){
+                    count++;
+                }
+
+            } else if (m > 1000 && m < 10000){
+                if (m % 1000 % 100 % 10 === 3){
+                    count++;
+                }
+                if (Math.floor(m % 1000 % 100 / 10) === 3){
+                    count++;
+                }
+                if (Math.floor(m % 1000 / 100) === 3){
+                    count++;
+                }
+                if (Math.floor(m / 1000) === 3){
+                    count++;
+                }
+
+
+            } else if (m > 10000 && m < 100000) {
+                    if (m % 10000 % 1000 % 100 % 10 === 3) {
+                        count++;
+                    }
+                    if (Math.floor(m % 10000 % 1000 % 100 / 10) === 3) {
+                        count++;
+                    }
+                    if (Math.floor(m % 10000 % 1000 / 100) === 3) {
+                        count++;
+                    }
+                    if (Math.floor(m % 10000 / 1000) === 3) {
+                        count++;
+                    }
+                    if (Math.floor(m / 10000) === 3) {
+                        count++;
+                    }
+
+                }
+            }
+
+            console.log(count);
+            if (k === count){
+                console.log('YES');
+            } else {
+                console.log('NO');
+            }
+
+    </script>
+
+    <script type="xx" id="ch0105/31">
+        var N = +prompt('正整数 N = '),//以灯为主研究对象，用
+            M = +prompt('正整数 M = '),//每个人去遍历灯
+            count = 0;
+
+        for(var i = 1; i <= N; i++){
+            for (var j = 1; j <= M; j++){
+                if (i % j === 0){
+                    count++;
+                }
+                if (j === M && count % 2 !== 0){
+                    console.log(i);
+                    count = 0;
+                }
+            }
+
+        }
+    </script>
+
+    <script type="xx" id="ch0105/32">
+        var n = +prompt('请输入 n = '),
+            p = 1,
+            q = 2,
+            Sn = 0;
+        
+        for (var i = 0; i < n; i++){
+            Sn = Sn + q / p;
+            q = p + q;
+            p = q - p;
+
+        }
+        console.log(Sn.toFixed(4));
+    </script>
+
+    <script type="xx" id="ch0105/33">
+        var n = +prompt('n = '),
+            an ,
+            Sn = 0;
+
+
+        for (var i = 0; i < n ; i++){
+            if((i + 1) % 2 === 0){
+                an = -1 / (i + 1);
+            } else {
+                an = 1 / (i + 1);
+            }
+
+            Sn = Sn + an;
+
+        }
+        console.log(Sn.toFixed(4));
+    </script>
+
+    <script type="xx" id="ch0105/34">//
+        var n = +prompt('34: n = '),
+            an = 1,
+            Sn = 0;
+
+        for (var i = 0; i < n; i++){
+            an = an * (i + 1);
+            Sn = Sn + an;
+        }
+
+        console.log(Sn);
+    </script>
+
+    <script type="xx" id="ch0105/35">
+        var n = +prompt('35: n = '),
+            an = 1,
+            e = 0;
+
+
+        for (var i = 0; i < n; i++){
+            for (var i = 0; i < n; i++){
+                an = an * (i + 1);
+                e = e + 1 / an;
+            }
+        }
+
+
+        console.log(e.toFixed(10));
+    </script>
+
+    <script type="xx" id="ch0105/36">
+        var x = +prompt('37: x = '),
+            n = +prompt('37: n = '),
+            an = 1,
+            Sn = 0;
+
+        for (var i = 0; i <= n; i++){
+
+            Sn = Sn + an;
+            an = an * x;
+        }
+
+
+        console.log(Sn.toFixed(2));
+    </script>
+
+    <script type="xx" id="ch0105/37">
+        var M = +prompt('37: M = '),
+            N = +prompt('37: N = '),
+            X = +prompt('38: X = '),
+            x,
+            y = X,
+            i = 1,
+            n;
+
+        while (i){
+            x = Math.ceil(M / N);//消耗的能量元素
+            y = y - x;//剩余的能量
+            n = Math.floor(M / N) * 1;//一个战斗期后增加的战力
+            N = N + n;
+
+            if (y <= 0){
+                i = false;
+                console.log(N);
+            }
+        }
+    </script>
+
+    <script type="xx" id="ch0105/38">
+        var n = +prompt('38: n = '),
+            Ci;
+
+        for (var i = n; i >= 0; i--){
+            Ci = +prompt('38: 第' + n + '项系数');
+
+        }
+    </script>
+
+    <script type="xx" id="ch0105/39">
+        var n = +prompt('39: n = '),
+            an,
+            Sn = 0;
+
+        for (var i = 1; i < n; i++){
+            if (i % 7 !== 0 && i % 10 !== 7 && Math.floor(i / 10) !== 7){
+                an = i * i;
+                Sn = Sn + an;
+            }
+        }
+
+        console.log(Sn);
+
+    </script>
+
+    <script type="xx" id="ch0105/40">
+        var m = +prompt('40: n = '),
+            count = 0;
+
+        if (m >= 1 && m <= 10000){
+            for (var i = 1; i <= m; i++){
+
+                    if (i % 1000 % 100 % 10 === 1){
+                        count++;
+                    }
+                    if (Math.floor(i % 1000 % 100 / 10) === 1){
+                        count++;
+                    }
+                    if (Math.floor(i % 1000 / 100) === 1){
+                        count++;
+                    }
+                    if (Math.floor(i / 1000) === 1){
+                        count++;
+                    }
+
+                }
+            console.log(count);
+            }
+
+    </script>
+
+    <script type="xx" id="ch0105/41">
+        var m = +prompt('41: L = '),
+            r = +prompt('41: R ='),
+            count = 0;
+
+
+            for (var i = m; i <= r; i++){
+
+                if (i % 1000 % 100 % 10 === 2){
+                    count++;
+                }
+                if (Math.floor(i % 1000 % 100 / 10) === 2){
+                    count++;
+                }
+                if (Math.floor(i % 1000 / 100) === 2){
+                    count++;
+                }
+                if (Math.floor(i / 1000) === 2){
+                    count++;
+                }
+
+            }
+            console.log(count);
+
+    </script>
+
+    <script type="" id="ch0105/42">
+        var width = +prompt('42: width = '),
+            height = +prompt('42: height = '),
+            char = prompt('42: char = '),
+            isHt = +prompt('42: isHt = ');
+
+
+
+            for (var i = 0; i < height; i++){
+                for (var j = 0; j < width; j++){
+                    char = ' ' + char;
+
+                    }
+
+                console.log(char);
+                }
+
+
 
     </script>
 
