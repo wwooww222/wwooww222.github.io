@@ -769,24 +769,25 @@
         console.log(Math.floor(M));
     </script>
 
-    <script type="xx" id="ch0105/16">
+    <script type="XX" id="ch0105/16">///
         var N = Number(prompt('年薪 N =')),
             K = Number(prompt('房价增长率 K = ')),
             M,
             P = 200,
-            S = 0;//50
+            S = 50;//50
 
         for (var i = 1; i <= 20; i++){
             P = P * (1 + 0.01 * K);
             S += N;
-            
-            if (S >= P){
+
+            console.log(S,P);
+            /*if (S > P){
                 M = i;
-                console.log(M);
-            }
-            if (i === 20 && S < P){
+                console.log(M,S,P);
+            }*/
+            /*if (i === 20 && S < P){
                 console.log('impossible');
-            }
+            }*/
         } 
         
     </script>
@@ -865,16 +866,16 @@
         console.log(Math.ceil(t1 + t2 + t3));
     </script>
 
-    <script type="xx" id="ch0105/20">
+    <script type="xx" id="ch0105/20">///
         var h = Number(prompt('高度 h= ')),
-            s = 0;
+            Sn = 0;
 
         for (var i = 0; i < 10; i++){
-            s += h + 0.5 * h;
-            h *= 0.5
+            h = 0.5 * h;
+            Sn += 2 * h + h;
         }
 
-        console.log(s.toFixed(4),h.toFixed(7));
+        console.log(Sn.toFixed(4),h.toFixed(7));
     </script>
 
     <script type="XX" id="ch0105/21">
@@ -896,7 +897,7 @@
         }
     </script>
 
-    <script type="xx" id="ch0105/22">
+    <script type="XX" id="ch0105/22">///
         var m,
             l,
             s = 0,
@@ -908,11 +909,12 @@
             l = 300 + y - m;
             s = l >= 100 ? Math.floor(l / 100) * 100
                          : 0;
-            S = S + s ;
+            S = S + s;
             y = l - s;
 
             if (l < 0){
                 console.log('-' + (i + 1));
+                break;
             }
 
             if (i === 11){
@@ -964,7 +966,7 @@
         console.log(max);
     </script>
 
-    <script type="xx" id="ch0105/25">
+    <script type="xx" id="ch0105/25">//
         var x,
             y,
             z
@@ -978,7 +980,11 @@
                     z = k;
                     if (x * 7 * 7 + y * 7 + z ===
                         z * 9 * 9 + y * 9 + x) {
+                        if (x === 0 && y === 0 && z === 0){
+                            break;
+                        }
                         console.log(x * 7 * 7 + y * 7 + z )
+                        console.log(x,y,z)
                     }
                 }
             }
@@ -1135,7 +1141,7 @@
         }
     </script>
 
-    <script type="xx" id="ch0105/30">
+    <script type="xx" id="ch0105/30">///
         var m = Number(prompt('正整数 m = ')),
             k = Number(prompt('正整数 n = ')),
             count = 0;
@@ -1199,7 +1205,7 @@
                 }
             }
 
-            console.log(count);
+
             if (k === count){
                 console.log('YES');
             } else {
@@ -1208,7 +1214,7 @@
 
     </script>
 
-    <script type="xx" id="ch0105/31">
+    <script type="xx" id="ch0105/31">///
         var N = +prompt('正整数 N = '),//以灯为主研究对象，用
             M = +prompt('正整数 M = '),//每个人去遍历灯
             count = 0;
@@ -1274,10 +1280,10 @@
         console.log(Sn);
     </script>
 
-    <script type="xx" id="ch0105/35">
+    <script type="xx" id="ch0105/35">///
         var n = +prompt('35: n = '),
             an = 1,
-            e = 0;
+            e = 1;
 
 
         for (var i = 0; i < n; i++){
@@ -1329,7 +1335,7 @@
         }
     </script>
 
-    <script type="xx" id="ch0105/38">
+    <script type="xx" id="ch0105/38">///
         var n = +prompt('38: n = '),
             Ci;
 
@@ -1407,7 +1413,7 @@
 
     </script>
 
-    <script type="" id="ch0105/42">
+    <script type="xx" id="ch0105/42">
         var width = +prompt('42: width = '),
             height = +prompt('42: height = '),
             char = prompt('42: char = '),
