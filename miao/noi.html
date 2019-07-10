@@ -6,8 +6,48 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>NOI</title>
+    <style>
+        /*.img{
+
+            width: 90px;
+            height: 120px;
+            background-color: #ddd;
+            background-image: url("../../../img/reader/rd1.jpg") ;
+            background-size: 90px 120x;
+            background-position: 0 0;
+            transition: 2s;
+        }
+        .img:hover{
+            background-image: url("../../../img/reader/rd2.jpg") ;
+            transform: 90px;
+        }*/
+        body{
+            margin: 0;
+        }
+        .img{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            vertical-align: middle;
+        }
+
+        .img2{
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+
+            background-color: green;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 <body>
+
+    <div>
+        <div class="img">123xxx</div>
+        <div class="img2">xxx</div>
+    </div>
     <script type="xx" id="ch0103/01">
         var A = Number(prompt('请输入A')),
             B = Number(prompt('请输入B'));
@@ -769,25 +809,25 @@
         console.log(Math.floor(M));
     </script>
 
-    <script type="XX" id="ch0105/16">///
+    <script type="xx" id="ch0105/16">//第一年工资拿到手后房价为200万
         var N = Number(prompt('年薪 N =')),
             K = Number(prompt('房价增长率 K = ')),
             M,
             P = 200,
             S = 50;//50
 
-        for (var i = 1; i <= 20; i++){
+        for (var i = 2; i <= 20; i++){
             P = P * (1 + 0.01 * K);
             S += N;
 
-            console.log(S,P);
-            /*if (S > P){
-                M = i;
-                console.log(M,S,P);
-            }*/
-            /*if (i === 20 && S < P){
+
+            if (S > P){
+                console.log(i);
+                break;
+            }
+            if (i === 20 && S < P){
                 console.log('impossible');
-            }*/
+            }
         } 
         
     </script>
@@ -871,8 +911,11 @@
             Sn = 0;
 
         for (var i = 0; i < 10; i++){
-            h = 0.5 * h;
+            h = 1 / 2 * h;
             Sn += 2 * h + h;
+            if (i === 9){
+                Sn = Sn - h;
+            }
         }
 
         console.log(Sn.toFixed(4),h.toFixed(7));
@@ -966,7 +1009,7 @@
         console.log(max);
     </script>
 
-    <script type="" id="ch0105/25">//
+    <script type="xx" id="ch0105/25">//
         var x,
             y,
             z
@@ -1215,7 +1258,8 @@
     <script type="xx" id="ch0105/31">///
         var N = +prompt('正整数 N = '),//以灯为主研究对象，用
             M = +prompt('正整数 M = '),//每个人去遍历灯
-            count = 0;
+            count = 0,
+            result = '';
 
         for(var i = 1; i <= N; i++){
             for (var j = 1; j <= M; j++){
@@ -1223,12 +1267,12 @@
                     count++;
                 }
                 if (j === M && count % 2 !== 0){
-                    console.log(i);
+                    result = result + i + ' ';
                     count = 0;
                 }
             }
-
         }
+        console.log(result);
     </script>
 
     <script type="xx" id="ch0105/32">
@@ -1428,14 +1472,1771 @@
                 console.log(char);
                 }
 
+    </script>
+
+    <script type="xx" id="ch0105/43">
+        var n = +prompt('43: n = ')
+
+        
+        for (var i = Math.sqrt(n); i < n - 1; i++){
+
+            if (n % Math.ceil(i) === 0){
+                console.log(Math.ceil(i));
+            }
+        }
+    </script>
+
+    <script type="xx" id="ch0105/44">
+        var n = +prompt('44: n = ')
+
+        
+    </script>
+
+
+
+    <script type="x" id="ch0105/44">
+        var isPrime = function (n) {
+            for (var i = 2; i < n; i++){
+                if () 
+            } 
+        }
+    </script>
+
+
+
+    <script type="xx" id="水仙花数1">
+        var n
+        var m
+        var fix
+        var digtal
+        var width
+
+
+        for (var i = 1; i < 10000; i++){
+            n = i
+            m = n
+            fix = n
+
+            width = 0
+            while (n > 0){
+                digtal = n % 10
+                width++
+                n = (n - digtal) / 10
+            }
+
+            var sum = 0
+            var mul = 1
+            digtal = 0
+            while (m > 0){
+                digtal = m % 10
+                for (var j = 0; j < width; j++){
+                    mul = digtal * mul
+                }
+                sum += mul
+                m = (m - digtal) / 10
+                mul = 1
+            }
+
+
+            if (sum === fix){
+                console.log(true)
+            }
+
+        }
+
+
+
+
+    </script>
+
+    <script type="x" id="水仙花2">
+     /*
+     *返回数值m为十进制的位宽
+     */
+        var digtalWidth = function (n) {
+            var width = 0
+            var digtal
+            while (n > 0){
+                digtal = n % 10
+                width++
+                n = (n - digtal) / 10
+            }
+            return width
+        }
+
+     /*
+     *一个数的n次方
+     */
+        var power = function (digtal,width) {
+            var result = 1
+
+            for (var j = 0; j < width; j++){
+                result = digtal * result
+            }
+            return result
+        }
+
+        /*
+        *幂次为位宽的各个数之和
+        */
+        var sumAllDigtal = function (m,n) {
+            var sum = 0
+            var mul = 1
+            var digtal = 0
+            while (m > 0){
+                digtal = m % 10
+                sum += power(n,digtal)
+                m = (m - digtal) / 10
+                mul = 1
+            }
+            return sum
+        }
+
+        /*
+        *判定一个数是否为水仙花数
+        */
+        var isNarcissistic = function (n) {
+            if (n === 0){
+                return false
+            }
+            if (sumAllDigtal(n,digtalWidth(n)) === n){
+                return true
+            }
+            return false
+        }
+
+
+        for (var i = 1; i < 1000; i++){
+            if (isNarcissistic(i)){
+                console.log(i);
+            }
+        }
+    </script>
+
+    <script type="x" id="7的倍数或各个位上是否有7">
+        var relateSeven = function (n) {
+            var getNumber = function (n) {
+                return Number(prompt('请输入一个数字'))
+            }
+
+            var n = getNumber(n)
+            if (n === 0){
+                return false
+            }
+            if (n % 7 === 0){
+                return true
+            } else {
+                var digtal
+                while (n > 0){
+                    digtal = n % 10
+                    if (digtal === 7){
+                        return true
+                    }
+                    n = (n - digtal) / 10
+                }
+
+            }
+            return false
+
+
+
+
+        }
+
+        if (relateSeven()){
+            console.log('yes')
+        } else {
+            console.log('no')
+        }
+    </script>
+
+
+    <script type="x" id="回文数">
+        /*
+         *判断位宽
+         */
+        var digtalWidth = function (n) {
+            var width = 0
+            var digtal
+            while (n > 0){
+                digtal = n % 10
+                width++
+                n = (n - digtal) / 10
+            }
+            return width
+        }
+
+        /*
+        *一个数的n次方
+        */
+        var power = function (w,n) {
+            var result = 1
+
+            for (var j = 0; j < w; j++){
+                result = n * result
+            }
+            return result
+        }
+
+
+
+        var isPalindrom = function () {
+            var n = +prompt('n = ')
+            var width = digtalWidth(n)
+            var wdhHalf = Math.floor(width / 2)
+
+
+            if (n < 0){
+                return false
+            }
+            if (n === 0){
+                return true
+            }
+            for (var i = 1; i <= wdhHalf; i++){
+                var right = Math.floor((n / power(i - 1,10 ))) % 10
+                var left = Math.floor((n / power(width - i,10))) % 10
+
+                if (left !== right){
+                    return false
+
+                }
+
+            }
+            return true
+
+        }
+
+        console.log(isPalindrom())
+    </script>
+
+
+    <script type="x" id="完全数">
+        var isPerfectNumber = function (m) {
+            var n = Number(m)
+            var sqrt_n = Math.sqrt(n)
+            var sum = 0
+            if (n === 1){
+                return false
+            }
+            for (var i = 2; i <= sqrt_n; i++){
+                if (n % i === 0 && n / i !== sqrt_n){
+                    sum = sum + i + n / i
+                }
+                if (n / i === sqrt_n){
+                    sum = sum + sqrt_n
+                }
+            }
+            if (sum === n - 1){
+                return true
+            } else {
+                return false
+            }
+        }
+
+        for (var i = 0; i < 1000; i++){
+            if (isPerfectNumber(i)){
+                console.log(i)
+            }
+        }
+
+    </script>
+
+
+    <script type="xx" id="判断素数">
+
+        var isPrimeNumber = function (m) {
+            var n = Number(m)
+            var sqrt_n = Math.sqrt(n)
+            var isPNumber = true
+
+
+            if (n === 1 || n === 0){
+                return false
+            } else {
+                for (var i = 2; i <= sqrt_n; i++){
+                    if (n % i === 0){
+                        return false
+                    }
+                }
+
+                if (isPNumber){
+                    return true
+                } else {
+                    return false
+                }
+            }
+        }
+
+        for (var i = 0; i < 1000; i++){
+            if (isPrimeNumber(i)){
+                console.log(i)
+            }
+
+        }
+
+    </script>
+
+
+    <script type="x" id="itob">
+     /*
+     *判断位宽
+     */
+        var digtalWidth = function (n) {
+            var width = 0
+            var digtal
+            while (n > 0){
+                digtal = n % 10
+                width++
+                n = (n - digtal) / 10
+            }
+            return width
+        }
+     /*
+     *一个数的n次方
+     */
+        var power = function (w,n) {
+            var result = 1
+
+            for (var j = 0; j < w; j++){
+                result = n * result
+            }
+            return result
+        }
+
+     /*
+      *数字转成字符串
+      */
+        var itob = function () {
+            var n = +prompt('n = ')
+            var chars
+            var moment
+            var result = ''
+            var widthN = digtalWidth(n)
+            for (var i = 1; i <= widthN; i++){
+                chars = Math.floor((n / power(widthN - i,10))) % 10
+
+                switch (chars){
+                    case 0: moment = '0'; break;
+                    case 1: moment = '1'; break;
+                    case 2: moment = '2'; break;
+                    case 3: moment = '3'; break;
+                    case 4: moment = '4'; break;
+                    case 5: moment = '5'; break;
+                    case 6: moment = '6'; break;
+                    case 7: moment = '7'; break;
+                    case 8: moment = '8'; break;
+                    case 9: moment = '9'; break;
+
+                }
+                result = result + moment
+            }
+
+            return typeof (result) + ':' + result
+        }
+
+
+        console.log(itob());
+    </script>
+
+    <script type="xx" id="最大公约数和最小公倍数">
+        var m = +prompt('m = ')
+        var n = +prompt('n = ')
+        var min = m < n ? m : n
+        var max = m > n ? m : m
+        var maxCon = -Infinity
+        for (var i = 1; i <= min; i++){
+            if (m % i === 0 && n % i === 0){
+                maxCon = i > maxCon ? i : maxCon
+            }
+        }
+        console.log(maxCon)
+
+        for (var j = max; ;j++){
+            if (j % m === 0 && j % n === 0){
+                console.log(j)
+                break
+            }
+        }
+    </script>
+
+
+
+    <script type="x" id="求一个数的平方根">
+        /*牛顿法*/
+        var sqrt1 = function (x){
+            var n = Number(x)
+            var x1 = 2
+            for (var i = 0; i < 5; i++){
+                var x1 = x1 - (x1 * x1 - n) / (2 * x1)
+            }
+
+            return Math.floor(x1)
+        }
+
+        /*二分法*/
+
+        var sqrt2 = function (x) {
+            var left
+            var right
+            var x1
+            var x2
+
+            if (x > 1){
+                 left = 0
+                 right = x
+                 x1 = right
+
+                for (var i = 0; i < 100; i++){
+                    x2 = (left + right) / 2
+                    if (x2 * x2 < x1){
+                        left = x2
+                    } else if (x2 * x2 > x1) {
+                        right = x2
+                    }
+                }
+
+                return Math.floor(x2)
+            } else if (x < 1){
+                left = x
+                right = 1
+                x1 = left
+
+                for (var j = 0; j < 30; j++){
+                    x2 = (left + right) / 2
+                    if (x2 * x2 > x1){
+                        right = x2
+                    } else if (x2 * x2 < x1){
+                        left = x2
+                    }
+                }
+                return Math.floor(x2)
+            } else if (x === 1){
+                return 1
+            }
+
+        }
+
+    </script>
+
+    <script type="x" id="输入年份与月份，输出这此年此月的第一天为星期几">
+        var y = +prompt('年 = ')
+        var m = +prompt('月 = ')
+        var leapYear = 0
+        var commonYear = 0
+        var leapMonth = 0
+        var commonMonth = 0
+        var specMonth = 0
+        var dayYear = 0
+        var dayMonth = 0
+        var sum
+
+
+        if (y === 1900 && m === 1){
+            dayMonth = 1
+        } else {
+            for (var i = 1900; i < y; i++){
+                if ((i % 400 === 0) && (i % 100 !== 0) || (i % 4 === 0)){
+                    leapYear++
+                } else {
+                    commonYear++
+                }
+            }
+            dayYear = leapYear * 366 + commonYear * 365
+
+
+            for (var j = 1; j < m; j++){
+                switch (j){
+                    case 1: leapMonth++;  break
+                    case 2:
+                        specMonth = (y % 400 === 0) && (y % 100 !== 0) || (y % 4 === 0) ? 29 : 28;  break
+                    case 3: leapMonth++;  break
+                    case 4: commonMonth++;  break
+                    case 5: leapMonth++;  break
+                    case 6: commonMonth++;  break
+                    case 7: leapMonth++;  break
+                    case 8: leapMonth++;  break
+                    case 9: commonMonth++;  break
+                    case 10: leapMonth++;  break
+                    case 11: commonMonth++;  break
+                    case 12: leapMonth++;  break
+                }
+            }
+            dayMonth = leapMonth * 31 + commonMonth * 30 + specMonth
+        }
+
+        sum = dayYear + dayMonth
+        var dayWeek = sum % 7
+
+        switch (dayWeek){
+            case 0: console.log('星期日'); break
+            case 1: console.log('星期一'); break
+            case 2: console.log('星期二'); break
+            case 3: console.log('星期三'); break
+            case 4: console.log('星期四'); break
+            case 5: console.log('星期五'); break
+            case 6: console.log('星期六'); break
+        }
 
 
     </script>
 
 
+    <script type="x" id="最大公约最小公倍 辗转相除/减法">
+        var getNumber = function (n) {
+            return Number(n)
+        }
 
-    <script type="xx" id="ch0105/01">
+        var isGreastCommonDiv = function (m,n) {
+            var x1 = getNumber(m)
+            var x2 = getNumber(n)
+            var min = x1 > x2 ? x2 : x1
+            var max = x1 < x2 ? x2 : x1
+            var y1
+            var y2
+            var y3
+            var i = 1
+
+            y1 = max % min
+            y2 = y1 % min
+            while (i){
+                y3 = y2 % y1
+                if (y3 === 0){
+                    return y1
+                    i = 0
+                }
+                y1 = y2
+                y2 = y3
+            }
+        }
+
+        var isMinCommonMul = function (m,n) {
+            var x1 = getNumber(m)
+            var x2 = getNumber(n)
+            var min = x1 > x2 ? x2 : x1
+            var max = x1 < x2 ? x2 : x1
+            var i = 1
+
+            var sub
+            var lcm
+            sub = max - min
+            while (i){
+                if(x1 % sub === 0 && x2 % sub === 0){
+                    lcm = (x1 / sub) * (x2 / sub) * sub
+                    return lcm
+                    i = 0
+                }
+
+                if (min > sub){
+                    max = min
+                    min = sub
+                    sub = max - min
+                } else {
+                    max = sub
+                    min = min
+                    sub = max - min
+                }
+
+            }
+        }
+
+
+        var gcdAndLcm = function (m,n) {
+            var gcd = isGreastCommonDiv(m,n)
+            var lcm = isMinCommonMul(m,n)
+
+            return (gcd + ' ' + lcm)
+        }
 
     </script>
+
+    <script type="x" id="ugly Number未完成">
+        var isUglyNumber = function () {
+            var n = +prompt('n = ')
+            var sqrt_n = Math.sqrt(n)
+            var m
+            var k
+
+            if (n === 1){
+                return true
+            } else if (n > 1){
+                for (var i = 2; i < sqrt_n; i++){
+                    m = n % i
+                    if (m === 0){
+                        k = n / i
+                        if (k % 2 === 0 || k % 3 === 0 || k % 5 === 0){
+
+                        }else{
+                            return false
+                        }
+                    }
+                }
+            }
+
+            return true
+        }
+
+
+        console.log(isUglyNumber());
+
+    </script>
+
+    <script type="x" id="Add Digits">
+        var addDigits = function () {
+            var n = +prompt('n = ')
+            var sum = 0
+            var digit
+
+            if (n === 0){
+                return 0
+            }
+            while (n > 0){
+                digit = n % 10
+                sum = sum + digit
+                n = (n - digit) / 10
+                if (n === 0){
+                    if (sum / 10 < 1){
+                        return sum
+                    }
+                    n = sum
+                    sum = 0
+                }
+            }
+        }
+        console.log(addDigits())
+    </script>
+
+    <script type="x" id="weiwan完全平方根">
+        var perfictSqrt = function () {
+            /*var n = +prompt('n = ')
+
+            if (n === 1){
+                return true
+            }
+            for(var i = 1; i <= n / 2; i++){
+                if (Math.abs(i * i - n) < Number.EPSILON){
+                    return true
+                }
+
+            }
+            return false*/
+            var n = +prompt('n = ')
+            var x1 = 2
+            for (var i = 0; i < 8; i++){
+                var x1 = x1 - (x1 * x1 - n) / (2 * x1)
+            }
+
+
+            return n % x1 === 0
+        }
+        console.log(perfictSqrt())
+    </script>
+
+    <script type="x" id="pow 2的n次方">
+         /*方法1*/
+        var pow2N = function (n) {
+            var n = n
+
+            if (n === 1){
+                return true
+            } else if (n === 0){
+                return false
+            }
+            while (1){
+                if (n % 2 === 0){
+                    n = n / 2
+                    if (n === 1){
+                        return true
+                    } else if (n % 2 !== 0){
+                        return false
+                    }
+
+                } else {
+                    return false
+                }
+
+            }
+        }
+
+         /*方法2*/
+        var pow2N = function (n) {
+           /* var n = n
+            var max2n = 1073741824
+
+
+            if (n === 0){
+                return false
+            }
+                if (max2n % n === 0){
+                    return true
+                } else {
+                    return false
+                }*/
+
+        }
+
+         /*方法3*/
+       /* var pow2N = function (n) {
+            var n = n
+            return (n & n - 1) === 0
+        }*/
+    </script>
+
+    <script type="x" id="pow 3的n次方">
+        var pow3N = function (n) {
+            var n = n
+
+            if (n <= 0){
+                return false
+            } else if (n === 1){
+                return true
+            }
+            while (1){
+                if (n % 3 === 0){
+                    n = n / 3
+                    if (n === 1){
+                        return true
+                    } else if (n % 3 !== 0) {
+                        return false
+                    }
+                } else {
+                    return false
+                }
+            }
+        }
+
+
+    </script>
+
+
+    <script type="x" id="汉明距离">
+        var hanMingDistance = function (m,n) {
+            var m = m
+            var n = n
+            var count = 0
+
+            var k = m ^ n
+            for (var i = 0; i < 32; i++){
+
+                if (k % 2 === 1){
+                    count++
+                }
+                k = k >> 1
+            }
+
+
+            return count
+        }
+
+    </script>
+
+
+    <script type="x" id="x的n次方myPow">
+        var myPow = function (x,n) {
+            /*方法1 递归*/
+           /* var x = x
+            var n = n
+            var mul
+
+            var pow = function (n) {
+                if (n === 0){
+                    return 1
+                }
+                return  x * pow(n - 1)
+            }
+
+            if (x === 0){
+                return 0
+            }
+            if (n < 0){
+                n = -n
+                return 1 / pow(n)
+            }
+
+            return pow(n)*/
+
+
+           /*方法2*/
+
+           /* var x = x
+            var n = n
+            var sign = n
+            var t = 1
+
+            n = n < 0 ? -n : n
+
+            var digWidth = Math.floor(Math.log2(n))
+
+            digWidth
+            if (n === 0 && x !== 0){
+                return 1
+            }
+            if (x === 0){
+                return 0
+            }
+
+            while (digWidth >= 0){
+                var d = (n >> digWidth) % 2
+                if (d === 1 || d === -1){
+                    t = t * t * x
+                } else {
+                    t = t * t
+                }
+                digWidth--
+            }
+
+            if(sign < 0){
+                return 1 / t
+            } else if (sign > 0){
+                return t
+            }*/
+
+           /*方法3*/
+            /*var x = x
+            var n = n
+            var sign = n
+            var m = 1
+            var t = x
+            var result = 1
+            n = n > 0 ? n : -n
+
+
+            if (n === 0 && x !== 0){
+                return 1
+            }
+            if (x === 0){
+                return 0
+            }
+            while (n > 0){
+                if (m * 2 < n){
+                    t = t * t
+                    m = m * 2
+
+                } else {
+
+                    result = result * t
+                    n = n - m
+                    t = x
+                    m = 1
+                }
+
+            }
+
+            if (sign < 0){
+                return 1 / result
+            } else {
+                return result
+            }
+*/
+
+            /*方法4*/
+
+            /*var x = x
+            var n = n
+            var sign = n
+            var result = 1
+            var t = x
+            var d
+
+           n = n < 0 ? -n : n
+
+            while (n > 0){
+
+                d = n % 2
+                if (d){
+                    result = result * t
+                }
+                t = t * t
+                n = n >> 1
+                n = n < 0 ? -n : n
+            }
+
+            if (sign < 0){
+                return 1 / result
+            } else {
+                return result
+            }
+
+
+        }*/
+    </script>
+
+    <script type="x" id="happy Number">
+        var isHappyNummber = function (n) {
+            var n = n
+            var digtl
+            var sqrt_n
+            var sum = 0
+
+            while (1){
+                digtl = n % 10
+                sqrt_n = digtl * digtl
+                sum = sum + sqrt_n
+                n = (n - digtl) / 10
+
+                if (sum === 1 && n === 0){
+                    return true
+                }
+                if (n === 0){
+
+                    if (sum === 3 || sum === 9 || sum === 61 || sum === 65 || sum === 81){
+                        return false
+                    }
+                    if (sum === 4){
+                        return false
+                    }
+
+                    n = sum
+                    sum = 0
+                }
+
+            }
+
+
+
+
+        }
+    </script>
+
+    <script type="x" id="base 7">
+        var baseSeven = function (n) {
+            var n = n
+            var digtl
+            var digtlNumber = ''
+            var sign = n
+
+            n = n < 0 ? -n : n
+            if (n === 0){
+                return '0'
+            }
+            while (n > 0){
+                digtl = n % 7
+
+                switch (digtl){
+                    case 0: digtlNumber =  '0' + digtlNumber; break
+                    case 1: digtlNumber =  '1' + digtlNumber; break
+                    case 2: digtlNumber =  '2' + digtlNumber; break
+                    case 3: digtlNumber =  '3' + digtlNumber; break
+                    case 4: digtlNumber =  '4' + digtlNumber; break
+                    case 5: digtlNumber =  '5' + digtlNumber; break
+                    case 6: digtlNumber =  '6' + digtlNumber; break
+                }
+                n = (n - digtl) / 7
+            }
+
+            if (sign < 0){
+                return '-' + digtlNumber
+            } else {
+                return digtlNumber
+            }
+        }
+    </script>
+
+    <script type="x" id="reserves integer">
+        var reservesInteger = function (n) {
+
+        <!--方法1-->
+            var n = n
+            var digtl
+            var result = ''
+            var sign = n
+
+            n = n < 0 ? -n : n
+            while (n > 0){
+                digtl = n % 10
+                switch (digtl){
+                    case 0: result = result + '0'; break
+                    case 1: result = result + '1'; break
+                    case 2: result = result + '2'; break
+                    case 3: result = result + '3'; break
+                    case 4: result = result + '4'; break
+                    case 5: result = result + '5'; break
+                    case 6: result = result + '6'; break
+                    case 7: result = result + '7'; break
+                    case 8: result = result + '8'; break
+                    case 9: result = result + '9'; break
+                }
+                n = (n - digtl) / 10
+            }
+
+            result = Number(result)
+            if (result > (Math.pow(2,31) - 1) || result < Math.pow(-2,31)){
+                return 0
+            }
+            if (sign < 0){
+                return -result
+            } else {
+                return +result
+            }
+        }
+    </script>
+
+    <script type="x" id="Self Dividing Numbers">
+        var selfDivNumber = function (m,n) {
+            var n = n
+            var m = m
+            var digtl
+            var d
+            var result = 0
+            var arr = []
+            var k
+
+            for(var i = m; i <= n; i++){
+                m = i
+                k = i
+                while (m > 0){
+                    digtl = m % 10
+                    d = k % digtl
+                    result = result + d
+                    m = (m - digtl) / 10
+
+                }
+
+                if (result === 0){
+                    arr.push(i)
+                }
+                result = 0
+
+            }
+
+            return arr
+        }
+    </script>
+
+
+    <script type="x" id="Binary Gap">
+
+        var binaryGap = function (n) {
+            /*方法1*/
+            /*var n = n
+            var count0 = 0 //记录0出现的次数
+            var count1 = 0 //记录1出现的次数
+            var count = 0  //记录1出现2次的次数
+            var max = 0
+            var digtl  //最右边的数
+
+            while (n > 0){
+                digtl = n % 2
+                if (digtl === 1){
+                    count1++
+                }
+
+                if (count1 === 1 && digtl === 0){ //上一次循环遇到1且
+                    count0++                      //下一次循环为0时
+                }
+
+                if (count1 === 2){                 //
+                    count++
+                    max = count0 >= max ? count0 : max
+                    count0 = 0
+                    count1 = 1  //上一轮的第二个1同时也是下一轮的第一个1
+                }
+
+                n = n >> 1
+            }
+
+            if (count === 0 && count1 === 1){
+                return 0
+            }
+            return max + 1*/
+
+            /*方法2*/
+            var n = n
+            var digtlWidth = 32
+            var arr = []
+            var digtl
+            var max = 0
+            for (var i = 0; i < digtlWidth; i++){
+                digtl = n % 2
+                if (digtl === 1){
+                    arr.push(i)
+                }
+
+                n = n >> 1
+            }
+
+
+            for (var j = 0; j < arr.length - 1; j++){
+                max = Math.max(max,arr[j + 1] - arr[j])
+            }
+
+            return max
+        }
+    </script>
+
+    <script type="x" id="Reverse Bits">
+        var reverseBits = function (n) {
+            var n = n
+            var digtl
+            var result = 0
+            for (var i = 0; i < 32; i++){
+                digtl = n & 1
+                result = result << 1               //注意：若先加再移位可能错误
+                result =  digtl + result           //
+
+                n = n >> 1
+
+            }
+
+
+            return result >>> 0
+        }
+
+    </script>
+
+    <script type="x" id="Number of 1 Bits">
+        var numberOf1Byts = function (n) {
+            /*方法1*/
+            /*var n = n
+            var count = 0
+
+            for (var i = 0; i < 32; i++){
+                var d = n & 1
+                if (d === 1){
+                    count++
+                }
+                n = n >> 1
+            }
+
+            return count*/
+
+            /*方法2*/
+           /* var m = n
+            var mbin = m.toString(2)
+
+
+            var count = 0
+            for (var i = 0; i < mbin.length; i++){
+                if (mbin[i] === '1'){
+                    count++
+                }
+            }
+
+           return count*/
+        }
+    </script>
+
+
+    <script type="x" id=" Sum of Square Numbers">
+        var sumOfSquareNumber = function (c) {
+            var c = c
+            var sqrt_c = Math.sqrt(c)
+
+
+/*
+            for (var i = sqrt_c; i >= 0; i--){
+               if (c === i * i){
+                   return true
+               }
+                i = Math.floor(i)
+                   var digtl = c - i * i
+                   var d = Math.sqrt(digtl)
+                   if (digtl === d * d){
+                       return true
+                   } else {
+                       return false
+                   }
+
+            }
+
+            return false*/
+
+            if (c === 1){
+                return true
+            }
+            for (var a = 0; a * a <= c; a++){
+                var b = Math.sqrt(c - a * a)
+                if (b % 1 === 0){
+                    return true
+                }
+            }
+            return false
+        }
+    </script>
+
+    <script type="x" id="Move Zeroes">
+        var moveZeroes =function (n) {
+            var arr = n
+            var arrLen = arr.length
+            
+            for (var i = 0; i < arrLen; i++){
+                for (var j = i + 1; j < arrLen; j++){
+                    if (arr[i] === 0) {
+                        if (arr[j] !== 0){
+                            arr[i] = arr[j]
+                            arr[j] = 0
+                            break
+                        }
+                    }
+                }
+            }
+
+            return arr
+        }
+    </script>
+
+    <script type="x" id="Missing Number">
+        var missNumber = function (n) {
+
+           /* 方法1*/
+           /* var arr1 = n
+            var arr2 = new Array(arr1.length + 1)
+            var arr1Len = arr1.length
+            var arr2Len = arr2.length
+            for (var i = 0; i < arr2Len; i++){
+                for (var j = 0; j < arr1Len; j++){
+                    if (i === arr1[j]){
+                        arr2[i] = arr1[j]
+                        break
+                    }
+
+                }
+                if (arr2[i] !== i){
+                    return i
+                }
+            }*/
+
+
+            /* 方法2*/
+           /* var arr1 = n
+                arr1.sort(function (a,b) {
+                    return a - b
+                })
+
+            for (var i = 0; i < arr1.length; i++){
+                if (arr1[i] !== i){
+                    return i
+                }
+                if (arr1[i] === arr1.length - 1){
+                    return arr1.length
+                }
+
+            }*/
+
+        }
+
+
+    </script>
+
+    <script type="x" id="Plus One">
+        var plusOne = function (n) {
+            /*var n = n
+            var str = n.join('')
+            var N = Number(str)
+            var arr1 = []
+            var digtl
+            N = N + 1
+
+            console.log(N)
+            while (N > 0){
+                digtl = N % 10
+                arr1.unshift(digtl)
+                N = (N - digtl) / 10
+            }
+            return arr1*/
+
+            /*方法1*/
+           /* var arr = n
+            var nLen = arr.length
+            var iscarryBite = 1
+
+            for (var i = 1; i <= nLen; i++){
+                if (arr[nLen - i] === 9 && iscarryBite === 1){
+                    arr[nLen - i] = 0
+                    iscarryBite = 1
+                } else if (arr[nLen - i] !== 9 && iscarryBite === 1){
+                    arr[nLen - i] = arr[nLen - i] + iscarryBite
+                    iscarryBite = 0
+                }
+
+            }
+
+            if (arr[0] === 0 && iscarryBite === 1){
+                arr.unshift(1)
+            }
+
+            return arr*/
+
+            /*方法2*/
+
+
+        }
+
+    </script>
+
+    <script type="x" id="Max Consecutive Ones">
+        var maxConseOne = function (n) {
+            /*方法1*/
+            /*var arr = n
+            var nLen = arr.length
+            var count1 = 0
+            var max = -Infinity
+
+            for (var i = nLen - 1; i >= 0; i--){
+                if (arr[i] === 1){
+                    count1++
+                }
+                if (arr[i] === 0){
+                    max = max > count1 ? max : count1
+                    count1 = 0
+                }
+            }
+            max = max > count1 ? max : count1
+            return max*/
+
+
+            /*方法2未完成*/
+
+            /*var arr1 = n
+            var arr2 = []
+            var max = -Infinity
+
+            for (var i = arr1.length - 1; i >= 0; i--){
+                if (arr1[i] % 2 === 1){
+                    arr2.unshift(i)
+                }
+            }
+
+            for (var j = 0; j < arr2.length - 1; j++){
+                max = Math.max(max,arr2[j + 1] - arr2[j])
+
+            }
+            return arr2*/
+        }
+    </script>
+
+    <script type="x" id="Fizz Buzz">
+        var FizzBuzz = function (n) {
+            var n = n
+            var arr = []
+
+            for (var i = 0; i < n ; i++){
+                if ((i + 1) % 3 !== 0 && (i + 1) % 5 !== 0){
+                    arr.push(String((i + 1)))
+                }
+
+                if ((i + 1) % 3 === 0 && (i + 1) % 5 === 0){
+                    arr.push('FizzBuzz')
+                } else {
+                    if ((i + 1) % 3 === 0){
+                        arr.push('Fizz')
+                    } else if ((i + 1) % 5 === 0){
+                        arr.push('Buzz')
+                    }
+                }
+
+            }
+
+            return arr
+
+        }
+    </script>
+
+    <script type="x" id=" Remove Element">//wb上对的 lc上总是报错
+        var removeElement = function (n,val) {
+           /* 方法1*/
+           /* var arr = n
+            var num = val
+
+            for (var i = 0; i < arr.length; i++){
+                if (arr[i] == num){
+                    arr.splice(i,1)
+                    i = 0
+                }
+            }
+
+            return arr*/
+
+           /*方法2*/
+            var arr = n
+            var num = val
+            var count = 0
+            for (var i = 0; i < arr.length; i++){
+                for (var j = i + 1; j < arr.length; j++){
+                    if (arr[j] === num){
+                        arr[j] = arr[i]
+                        arr[i] = num
+
+                    }
+                }
+            }
+
+
+            for (var k = 0; k < arr.length; k++){
+                if (arr[k] === num){
+                    count++
+                }
+            }
+
+            while (count){
+                arr.shift()
+                count--
+            }
+            return arr
+        }
+    </script>
+
+    <script type="x" id="Search Insert Position">
+        var SearchInsertPosition = function (arr,v) {
+
+            /*方法1*/
+            /*var arr = arr
+            var v = v
+            var idx
+
+            for (var i = 0; i < arr.length; i++){
+                if (v === arr[i]){
+                    idx = arr.indexOf(v)
+                    return idx
+                }
+
+                if (v > arr[i] && v < arr[i + 1]){
+                    return (i + 1)
+                }
+                
+                if (v < arr[0]){
+                    return 0
+                } 
+                if (v > arr[arr.length - 1]){
+                    return arr.length
+                }
+            }*/
+
+
+        }
+    </script>
+
+    <script type="x" id="Merge Sorted Array">
+        var mergeSortedArray = function (n1,m,n2,n) {
+            var arr1 = n1
+            var m = m
+            var n2 = n2
+            var n = n
+            var n1Len = arr1.length
+
+            if (m + n <= n1Len){
+                var j = 0
+                for (var i = arr1.length - 1; i >= m; i--){
+                    if (arr1[i] === 0){
+                        arr1[i] = n2[j]                   //从后向前把第二个数
+                        j++                                //组写入第一个数组
+                        if (j === n){
+                            break
+                        }
+                    }
+
+                }
+            }
+
+            arr1.sort(function (a,b) {
+                if (a > b){
+                    return 1
+                } else{
+                    return -1
+                }
+            })
+
+            return arr1
+        }
+    </script>
+
+
+    <script type="x" id="Remove Duplicates from Sorted Array">
+      /*方法1*/
+       /* var removeDupFromSortedArray =function (n) {
+            var n = n
+
+            for (var i = 0; i < n.length; i++){
+                for (var j = i + 1; j < n.length; j++){
+                    if (n[i] === n[j]){
+                        n.splice(j,1)
+                        j = i
+                    }
+                }
+            }
+
+            return n*/
+
+       /*方法2 双指针也可解*/
+        }
+    </script>
+
+    <script type="x" id="Two Sum II - Input array is sorted">
+        var
+    </script>
+
+    <script type="x" id="Counting Bits">
+        var countBits = function (n) {
+            /*方法1*/
+           /* var n = n
+            var arr = []
+            var countOne = function (k) {
+                var k = k
+                var count = 0
+                while (k > 0){
+                    var d = k % 2
+                    if (d === 1){
+                        count++
+                    } 
+                    k = (k - d) / 2
+                } 
+                return count
+            }
+            
+            for (var i = 0; i <= n; i++){
+                arr.push(countOne(i))
+            }
+            return arr*/
+
+            
+        }
+    </script>
+
+    <script type="x" id="Multiply Strings 未完成">
+        var mulString = function (str1,str2) {
+            var min = str1.length < str2.length ? str1 : str2
+            var max = str2.length > str1.length ? str2 : str1
+            var cBitsAdd = 0
+            var cBitsMul = 0
+            var result = []
+            var d = 0
+            var sum = 0
+
+            for (var i = min.length - 1; i >= 0; i--){
+                for (var j = max.length - 1; j >= 0; j--){
+                    sum = max[j] * min[i] + cBitsMul
+                    cBitsMul = 0
+                    d = sum % 10
+                    result.unshift(d)
+                    if (sum > 9){
+                        cBitsMul = Math.floor(sum / 10)
+                    }
+
+                }
+
+                if (cBitsMul > 0 && j < 0){
+                    result.unshift(cBitsMul)
+                }
+
+
+
+
+            }
+
+            return result.join('')
+
+            /*return result
+            var arr1 = str1.split('')
+            var arr2 = str2.split('')
+            var d = 0
+            var cBits = 0
+            var arr0 = []
+            for (var i = arr1.length - 1; i >= 0; i--){
+                var j
+                for (j = arr2.length - 1; j >= 0; j--){
+                    var sum = arr2[j] + arr2[j] + cBits
+                    if (sum > 9){
+                        cBits = 1
+                    }
+                    d = sum % 10
+                    arr0.unshift(d)
+                }
+                if (j < 0 && cBits === 1){
+                    arr0.unshift(cBits)
+                }
+
+            }*/
+        }
+    </script>
+
+
+    <script type="x" id="Add Strings">
+        var addSting = function (n1,n2) {
+            var min1 = n1.length >= n2.length ? n2 : n1
+            var max2 = n2.length <= n1.length ? n1 : n2
+            var res = []
+            var cBits = 0
+            var sum
+            var d
+            
+            var j = min1.length - 1
+            for (var i = max2.length - 1; i >= 0; i--){
+
+                if (min1[j] === undefined ){
+                    sum = +max2[i] + cBits
+                    cBits = 0
+                    if (sum > 9){
+                        cBits = 1
+                    }
+                    d = sum % 10
+                    res.unshift(d)
+
+                }
+                if (j >= 0){
+                    sum = +max2[i] + +min1[j] + cBits
+                    cBits = 0
+                    if (sum > 9){
+                        cBits = 1
+                    }
+                    d = sum % 10
+                    res.unshift(d)
+                    j--
+                }
+
+            }
+            if (cBits === 1){
+                res.unshift(cBits)
+            }
+
+
+            return res.join('')
+        }
+        
+        
+    </script>
+
+    <script>
+        function reverseList(head) {
+            if (!head || !head.next){
+                return head
+            }
+            var tail = head.next
+            head.next = null
+            var newHead = reverseList(tail)
+            tail.next = head
+
+            return newHead
+        }
+
+        var reverseList = function(head) {
+            var a = null
+            var b = head
+            var c = head
+
+            while (b){
+                c = c.next
+                b.next = a
+                a = b
+                b = c
+
+            }
+            return a
+        }
+    </script>
+
+    <script>
+        var deleteNode = function(node) {
+            node.val = node.next.val
+            node.next = node.next.next
+        }
+    </script>
+
+    <script>
+        var removeElements = function(head, val) {
+            if (!head){
+                return head
+            }
+            if(head.val == val){
+                return removeElements(head.next,val)
+            } else {
+                head.next = removeElements(head.next,val)
+                return head
+            }
+        };
+    </script>
+
+    <script>
+        var swapPairs = function(head) {
+            if (!head || !head.next){
+                return head
+            }
+            var a = head
+            var b = a.next
+            var c = b.next
+            var b.next = a
+            var a.next = swapPairs(c)
+
+            return b
+        };
+
+        var swapPairs = function(head) {
+            if (!head || !head.next){
+                return head
+            }
+            
+        };
+
+    </script>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <script type="x" id="求一个数的平方根">
+
+    </script>
+
+
+    <script type="x" id="(x,y)方案">
+        var ways = function (x,y,history) {
+            var startX = 0
+            var startY = 0
+
+            if (initX < )
+        }
+
+    </script>
+
+
+    <script type="x" id="红钻红票">
+        var p = 28103
+        var z
+        var sum = 0
+        var count = 0
+        var m
+
+        /*while (p - 1 > 0) {
+            count++
+            z = 0.231703 * p
+            m = z * 0.05
+            p = p - m
+            sum = sum + z * 0.05
+            console.log('第' + count + '天:' ,'剩余红票:' + p.toFixed(0),'每日分红红钻:' + z.toFixed(0),'每日提现金额:' + m.toFixed(0),'总提现:' + sum.toFixed(0))
+        }*/
+        for (var i = 0; i < 365; i++){
+            p = p * (1 + 0.02317 * 3 / 4)
+            console.log('第' + (i + 1) + '天' + '红票数:' + p.toFixed(0))
+        }
+        </script>
+
 </body>
 </html>
